@@ -12,14 +12,13 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 /**
- * Get port from environment and store in Express.
+ * Get port from environment
  */
 
 const PORT = (process.env.PORT || '8000');
 const HOST = (process.env.HOST || 'localhost');
-app.set('port', PORT);
-app.set('host', HOST);
-app.set('env', process.env.ENV);
+const ENV = (process.env.ENV || 'development');
+
 
 
 /**
@@ -69,4 +68,5 @@ function onListening() {
   var addr = server.address();
   var bind = 'Port ' + addr.port;
     console.log('Listening on ' + bind);
+    console.log('Environment is set to ' + ENV);
 }
